@@ -23,16 +23,18 @@ string[] CreateArray(int size)
     return arr;
 }
 
-void PrintArray(string[] arr) 
+string PrintArray(string[] arr)
 {
-    Console.Write("[");
+    string str = "[";
     for (int i = 0; i < arr.Length; i++)
     {
-        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
-        else Console.Write($"{arr[i]}");
+        if (str == "[") str += arr[i];
+        else str += $", {arr[i]}";
     }
-    Console.Write("] ");
+    str += "]";
+    return str;
 }
 
 string[] array = CreateArray(size);
-PrintArray(array);
+Console.WriteLine(array);
+Console.WriteLine(PrintArray(array));
